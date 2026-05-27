@@ -1,0 +1,155 @@
+﻿<Page x:Class="WPFDBConnection.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFDBConnection"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page1">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <!--HEADER-->
+        <Border Grid.Row="0" Background="White"
+                BorderThickness="0,0,0,1" Padding="28,20,28,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Students" FontFamily="Georgia" FontSize="22"
+                               FontWeight="Bold" Foreground="Navy"/>
+                    <TextBlock x:Name="TxtCount" FontSize="12"
+                                Margin="0,2,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <!-- Search -->
+                    <Border Background="LightGray"
+                            BorderThickness="1" CornerRadius="4"
+                            Padding="10,0" Margin="0,0,10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Search" VerticalAlignment="Center"
+                                        Margin="0,0,6,0"/>
+                            <TextBox x:Name="TxtSearch" Width="220" BorderThickness="0"
+                                     FontSize="13" Background="Transparent"
+                                     Padding="0,8"
+                                     TextChanged="TxtSearch_Changed"/>
+                        </StackPanel>
+                    </Border>
+                    <Button Content="+ Add Student" Click="BtnAdd_Click" RenderTransformOrigin="0.5,0.5"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--DATA GRID -->
+        <DataGrid x:Name="Grid" Grid.Row="1"
+                  SelectionChanged="Grid_SelectionChanged"
+                  AutoGenerateColumns="False"
+                  Margin="20,16,20,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="STUDENT NO"  Binding="{Binding StudentNo}"  Width="110"/>
+                <DataGridTextColumn Header="FIRST NAME"  Binding="{Binding FirstName}"  Width="*"/>
+                <DataGridTextColumn Header="LAST NAME"   Binding="{Binding LastName}"   Width="*"/>
+                <DataGridTextColumn Header="EMAIL"       Binding="{Binding Email}"      Width="1.5*"/>
+                <DataGridTextColumn Header="PHONE"       Binding="{Binding Phone}"      Width="120"/>
+                <DataGridTextColumn Header="DATE OF BIRTH" Binding="{Binding DateOfBirth}" Width="120"/>
+                <DataGridTemplateColumn Header="STATUS" Width="90">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border x:Name="Pill" CornerRadius="10" Padding="8,3"
+                                    HorizontalAlignment="Left" Margin="6,0">
+                                <TextBlock Text="{Binding Status}" FontSize="11"
+                                           FontWeight="SemiBold" x:Name="PillText"/>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--EDIT / ADD FORM | CRUD -->
+        <Border Grid.Row="2" Background="White"
+                BorderThickness="0,1,0,0" Padding="24,20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Form title + action buttons -->
+                <Grid Grid.Row="0" Margin="0,0,0,14">
+                    <TextBlock x:Name="TxtFormTitle" Text="Add Student"
+                               FontFamily="Georgia" FontSize="15" FontWeight="Bold"
+                              
+                               VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Clear" 
+                                Click="BtnClear_Click" Margin="0,0,8,0"/>
+                        <Button Content="Delete" 
+                                Click="BtnDelete_Click" Margin="0,0,8,0"
+                                x:Name="BtnDeleteBtn"/>
+                        <Button Content="Save"
+                                Click="BtnSave_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Fields row -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                        <TextBlock Text="STUDENT NO" />
+                        <TextBox x:Name="TxtNo"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                        <TextBlock Text="FIRST NAME"/>
+                        <TextBox x:Name="TxtFirst"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="0,0,10,0">
+                        <TextBlock Text="LAST NAME"/>
+                        <TextBox x:Name="TxtLast"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Margin="0,0,10,0">
+                        <TextBlock Text="EMAIL"/>
+                        <TextBox x:Name="TxtEmail"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4" Margin="0,0,10,0">
+                        <TextBlock Text="PHONE"/>
+                        <TextBox x:Name="TxtPhone"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="5" Margin="0,0,10,0">
+                        <TextBlock Text="DATE OF BIRTH"/>
+                        <TextBox x:Name="TxtDob"
+                                 ToolTip="yyyy-MM-dd"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="6">
+                        <TextBlock Text="STATUS"/>
+                        <ComboBox x:Name="CmbStatus">
+                            <ComboBoxItem Content="Active" IsSelected="True"/>
+                            <ComboBoxItem Content="Inactive"/>
+                            <ComboBoxItem Content="Graduated"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

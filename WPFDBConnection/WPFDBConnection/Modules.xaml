@@ -1,0 +1,157 @@
+﻿<Page x:Class="WPFDBConnection.Modules"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFDBConnection"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Modules">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--HEADER-->
+        <Border Grid.Row="0" Background="White"
+                BorderThickness="0,0,0,1" Padding="28,20,28,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Modules" FontFamily="Georgia" FontSize="22"
+                               FontWeight="Bold" Foreground="Navy"/>
+                    <TextBlock x:Name="TxtCount" FontSize="12"
+                                Margin="0,2,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Border Background="White"
+                            BorderThickness="1" CornerRadius="4"
+                            Padding="10,0" Margin="0,0,10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Search" VerticalAlignment="Center"
+                                       Margin="0,0,6,0"/>
+                            <TextBox x:Name="TxtSearch" Width="220" BorderThickness="0"
+                                     FontSize="13" Background="Transparent"
+                                     Padding="0,8"
+                                     TextChanged="TxtSearch_Changed"/>
+                        </StackPanel>
+                    </Border>
+                    <Button Content="+ Add Module"
+                            Click="BtnAdd_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--DATA GRID-->
+        <DataGrid x:Name="Grid" Grid.Row="1"
+                  SelectionChanged="Grid_SelectionChanged"
+                  AutoGenerateColumns="False"
+                  Margin="20,16,20,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CODE"        Binding="{Binding Code}"        Width="100"/>
+                <DataGridTextColumn Header="TITLE"       Binding="{Binding Title}"       Width="2*"/>
+                <DataGridTextColumn Header="CREDITS"     Binding="{Binding Credits}"     Width="80"/>
+                <DataGridTextColumn Header="LECTURER"    Binding="{Binding Lecturer}"    Width="*"/>
+                <DataGridTextColumn Header="DESCRIPTION" Binding="{Binding Description}" Width="2*"/>
+                <DataGridTemplateColumn Header="STATUS" Width="90">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border x:Name="Pill" CornerRadius="10" Padding="8,3"
+                                    HorizontalAlignment="Left" Margin="6,0">
+                                <TextBlock Text="{Binding Status}" FontSize="11"
+                                           FontWeight="SemiBold" x:Name="PillText"/>
+                            </Border>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="Active">
+                                    <Setter TargetName="Pill" Property="Background" Value="#D1FAE5"/>
+                                    <Setter TargetName="PillText" Property="Foreground" Value="#065F46"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="Inactive">
+                                    <Setter TargetName="Pill" Property="Background" Value="#FEF3C7"/>
+                                    <Setter TargetName="PillText" Property="Foreground" Value="#92400E"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- EDIT / ADD FORM | CRUD-->
+        <Border Grid.Row="2" Background="White"
+                BorderThickness="0,1,0,0" Padding="24,20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Form title + buttons -->
+                <Grid Grid.Row="0" Margin="0,0,0,14">
+                    <TextBlock x:Name="TxtFormTitle" Text="Add Module"
+                               FontFamily="Georgia" FontSize="15" FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Clear"
+                                Click="BtnClear_Click"  Margin="0,0,8,0"/>
+                        <Button Content="Delete"
+                                Click="BtnDelete_Click" Margin="0,0,8,0"/>
+                        <Button Content="Save"
+                                Click="BtnSave_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Row 1: Code, Title, Credits, Lecturer, Status -->
+                <Grid Grid.Row="1" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                        <TextBlock Text="CODE"/>
+                        <TextBox x:Name="TxtCode" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                        <TextBlock Text="TITLE"/>
+                        <TextBox x:Name="TxtTitle"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="0,0,10,0">
+                        <TextBlock Text="CREDITS"/>
+                        <TextBox x:Name="TxtCredits" Text="10"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Margin="0,0,10,0">
+                        <TextBlock Text="LECTURER" />
+                        <TextBox x:Name="TxtLecturer" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <TextBlock Text="STATUS" />
+                        <ComboBox x:Name="CmbStatus" >
+                            <ComboBoxItem Content="Active" IsSelected="True"/>
+                            <ComboBoxItem Content="Inactive"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Row 2: Description -->
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="DESCRIPTION"/>
+                    <TextBox x:Name="TxtDesc"
+                             Height="56" TextWrapping="Wrap"
+                             AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+
+</Page>

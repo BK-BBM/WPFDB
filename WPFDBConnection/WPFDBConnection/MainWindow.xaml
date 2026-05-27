@@ -1,0 +1,67 @@
+﻿<Window x:Class="WPFDBConnection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDBConnection"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900">
+    <Border CornerRadius="10" ClipToBounds="True" Margin="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="404*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="13*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--SIDEBAR -->
+            <Border Grid.Column="0" Background="#0D1B2A" Grid.RowSpan="3">
+                <DockPanel>
+
+                    <!-- Header -->
+                    <Border DockPanel.Dock="Top" Padding="24,28,24,20"
+                            BorderBrush="#1A2E45" BorderThickness="0,0,0,1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
+                                <Border Width="40" Height="40" Background="#C9A84C"
+                                        CornerRadius="20">
+                                    <TextBlock Text="S" FontSize="22" FontWeight="Bold"
+                                               Foreground="#0D1B2A" FontFamily="Georgia"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="Student Portal" FontFamily="Georgia"
+                                               FontSize="15" FontWeight="Bold"
+                                               Foreground="White"/>
+                                    <TextBlock Text="My Emeris" FontSize="11"
+                                               Foreground="#4E6B85"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Navigation -->
+                    <StackPanel DockPanel.Dock="Top" Margin="0,24,0,0">
+                        <TextBlock Text="NAVIGATION" FontSize="10" FontWeight="Bold"
+                                   Foreground="#2D4B63" Margin="28,0,0,10"/>
+                        <Button x:Name="BtnStudents" Content="Students" Tag="Students"
+                                 Click="Nav_Click"/>
+                        <Button x:Name="BtnModules" Content="Modules" Tag="Modules"
+                                 Click="Nav_Click"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+
+
+            <Frame x:Name="ContentFrame" Grid.Column="1"
+                  
+                   NavigationUIVisibility="Hidden" Grid.RowSpan="3"/>
+        </Grid>
+    </Border>
+
+</Window>
