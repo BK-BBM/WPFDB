@@ -291,23 +291,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\berke\\.nuget\\packages\\": {},
+    "C:\\Users\\tamolefe\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\berke\\source\\repos\\WPFDBConnection\\WPFDBConnection\\WPFDBConnection.csproj",
+      "projectUniqueName": "C:\\Users\\tamolefe\\Downloads\\POEs\\WPFDB\\WPFDBConnection\\WPFDBConnection\\WPFDBConnection.csproj",
       "projectName": "WPFDBConnection",
-      "projectPath": "C:\\Users\\berke\\source\\repos\\WPFDBConnection\\WPFDBConnection\\WPFDBConnection.csproj",
-      "packagesPath": "C:\\Users\\berke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\berke\\source\\repos\\WPFDBConnection\\WPFDBConnection\\obj\\",
+      "projectPath": "C:\\Users\\tamolefe\\Downloads\\POEs\\WPFDB\\WPFDBConnection\\WPFDBConnection\\WPFDBConnection.csproj",
+      "packagesPath": "C:\\Users\\tamolefe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tamolefe\\Downloads\\POEs\\WPFDB\\WPFDBConnection\\WPFDBConnection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\berke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tamolefe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -316,11 +316,11 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0-windows7.0": {
+          "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "projectReferences": {}
         }
@@ -339,6 +339,7 @@
     },
     "frameworks": {
       "net10.0-windows7.0": {
+        "framework": "net10.0-windows7.0",
         "targetAlias": "net10.0-windows",
         "dependencies": {
           "MySql.Data": {
@@ -365,7 +366,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

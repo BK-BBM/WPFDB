@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\berke\source\repos\WPFDBConnection\WPFDBConnection\obj\Debug\net10.0-windows\
+C:\Users\tamolefe\Downloads\POEs\WPFDB\WPFDBConnection\WPFDBConnection\obj\Debug\net10.0-windows\
 WPFDBConnection
 none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\berke\source\repos\WPFDBConnection\WPFDBConnection\App.xaml
+C:\Users\tamolefe\Downloads\POEs\WPFDB\WPFDBConnection\WPFDBConnection\App.xaml
 3-1307689984
 
 12602254706
-213899059335
+213548831983
 MainWindow.xaml;Modules.xaml;Student.xaml;
 
-False
+True
 

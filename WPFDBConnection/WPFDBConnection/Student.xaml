@@ -38,7 +38,7 @@
                             BorderThickness="1" CornerRadius="4"
                             Padding="10,0" Margin="0,0,10,0">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Search" VerticalAlignment="Center"
+                            <TextBlock Text="🔎" VerticalAlignment="Center"
                                         Margin="0,0,6,0"/>
                             <TextBox x:Name="TxtSearch" Width="220" BorderThickness="0"
                                      FontSize="13" Background="Transparent"
